@@ -13,6 +13,7 @@ struct Constants {
     static let YoutubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search?"
     static let API_KEY = "43ded7021f1ee5aef9956a51c88fc840"
     static let baseURL = "https://www.themoviedb.org"
+    static let sendTextURL = ""
 }
 
 final class APICaller {
@@ -27,7 +28,6 @@ final class APICaller {
             return
         }
         
-        // Alamofire request
         AF.request(url, method: .get).responseData { response in
             switch response.result {
             case .success(let data):
@@ -38,4 +38,17 @@ final class APICaller {
         }
     }
     
+    func sendTextToBackend(text: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let url = Constants.sendTextURL
+        let parameters: [String: Any] = ["text": text]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { response in
+            switch response.result {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

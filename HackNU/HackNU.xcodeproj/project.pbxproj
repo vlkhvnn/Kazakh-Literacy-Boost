@@ -33,6 +33,10 @@
 		7A6AB8FD2BCA694C00D2819B /* GrammarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6AB8FC2BCA694C00D2819B /* GrammarViewController.swift */; };
 		7A6AB8FF2BCA696100D2819B /* SpeakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6AB8FE2BCA696100D2819B /* SpeakingViewController.swift */; };
 		7A6AB9012BCA697300D2819B /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6AB9002BCA697300D2819B /* ReadingViewController.swift */; };
+		7ADFFF912BCAFD1300BDD02C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADFFF902BCAFD1300BDD02C /* CategoryView.swift */; };
+		7ADFFF942BCB051F00BDD02C /* BookDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADFFF932BCB051F00BDD02C /* BookDescription.swift */; };
+		7ADFFF962BCB170C00BDD02C /* TextAndTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADFFF952BCB170C00BDD02C /* TextAndTestView.swift */; };
+		7ADFFF982BCB20EF00BDD02C /* DynamicHeightScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADFFF972BCB20EF00BDD02C /* DynamicHeightScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		7A6AB8FC2BCA694C00D2819B /* GrammarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarViewController.swift; sourceTree = "<group>"; };
 		7A6AB8FE2BCA696100D2819B /* SpeakingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingViewController.swift; sourceTree = "<group>"; };
 		7A6AB9002BCA697300D2819B /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
+		7ADFFF902BCAFD1300BDD02C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		7ADFFF932BCB051F00BDD02C /* BookDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDescription.swift; sourceTree = "<group>"; };
+		7ADFFF952BCB170C00BDD02C /* TextAndTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndTestView.swift; sourceTree = "<group>"; };
+		7ADFFF972BCB20EF00BDD02C /* DynamicHeightScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,8 @@
 			children = (
 				7A2F8A962BCABA1100C52CCB /* PopularBooksCollectionViewCell.swift */,
 				7A2F8A9A2BCABE5B00C52CCB /* CategoriesCollectionViewCell.swift */,
+				7ADFFF902BCAFD1300BDD02C /* CategoryView.swift */,
+				7ADFFF952BCB170C00BDD02C /* TextAndTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,6 +148,7 @@
 				7A2F8A882BCA82CB00C52CCB /* CommonUI */,
 				7A2F8A8D2BCA8ACF00C52CCB /* Model */,
 				7A6AB8E22BCA63D500D2819B /* ViewControllers */,
+				7ADFFF922BCB050E00BDD02C /* Helpers */,
 				7A6AB8CB2BCA634C00D2819B /* AppDelegate.swift */,
 				7A6AB8CD2BCA634C00D2819B /* SceneDelegate.swift */,
 				7A6AB8D72BCA634E00D2819B /* Assets.xcassets */,
@@ -217,6 +228,15 @@
 				7A6AB8FC2BCA694C00D2819B /* GrammarViewController.swift */,
 			);
 			path = Grammar;
+			sourceTree = "<group>";
+		};
+		7ADFFF922BCB050E00BDD02C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7ADFFF932BCB051F00BDD02C /* BookDescription.swift */,
+				7ADFFF972BCB20EF00BDD02C /* DynamicHeightScrollView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,14 +327,18 @@
 				7A2F8A8F2BCA8AE500C52CCB /* User.swift in Sources */,
 				7A2F8A912BCA8AEC00C52CCB /* Achievement.swift in Sources */,
 				7A6AB8D62BCA634C00D2819B /* HackNU.xcdatamodeld in Sources */,
+				7ADFFF912BCAFD1300BDD02C /* CategoryView.swift in Sources */,
+				7ADFFF942BCB051F00BDD02C /* BookDescription.swift in Sources */,
 				7A2F8A872BCA82AC00C52CCB /* StatsTypeView.swift in Sources */,
 				7A2F8A852BCA820000C52CCB /* UserStatisticsView.swift in Sources */,
 				7A6AB8CC2BCA634C00D2819B /* AppDelegate.swift in Sources */,
 				7A6AB8FF2BCA696100D2819B /* SpeakingViewController.swift in Sources */,
 				7A6AB8FD2BCA694C00D2819B /* GrammarViewController.swift in Sources */,
 				7A2F8A972BCABA1100C52CCB /* PopularBooksCollectionViewCell.swift in Sources */,
+				7ADFFF982BCB20EF00BDD02C /* DynamicHeightScrollView.swift in Sources */,
 				7A2F8A9B2BCABE5B00C52CCB /* CategoriesCollectionViewCell.swift in Sources */,
 				7A6AB8EC2BCA650A00D2819B /* APICaller.swift in Sources */,
+				7ADFFF962BCB170C00BDD02C /* TextAndTestView.swift in Sources */,
 				7A6AB9012BCA697300D2819B /* ReadingViewController.swift in Sources */,
 				7A6AB8CE2BCA634C00D2819B /* SceneDelegate.swift in Sources */,
 				7A6AB8FB2BCA693500D2819B /* LeadersViewController.swift in Sources */,

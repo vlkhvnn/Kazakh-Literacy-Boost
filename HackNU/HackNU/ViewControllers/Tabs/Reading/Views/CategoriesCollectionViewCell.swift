@@ -39,7 +39,6 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
         label.textColor = .black
         label.font = .systemFont(ofSize: 15, weight: .bold)
         label.textAlignment = .center
-        label.numberOfLines = 0
         return label
     }()
     

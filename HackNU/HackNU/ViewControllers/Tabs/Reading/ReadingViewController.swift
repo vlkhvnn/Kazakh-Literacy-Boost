@@ -8,10 +8,9 @@
 import UIKit
 import SnapKit
 
-
 final class ReadingViewController: UIViewController {
     
-    private let popularBooks : [Book] = [
+    private var popularBooks : [Book] = [
         Book(title: "Қотыр торғай", content: "", imageName: "book1"),
         Book(title: "Түлкі мен жолбарыс", content: "", imageName: "book2"),
         Book(title: "Кім күшті?", content: "", imageName: "book3"),
@@ -26,24 +25,34 @@ final class ReadingViewController: UIViewController {
     
     private let categories : [Category] = [.knigi, .skazki, .komiksy]
     
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    private let contentView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let popularBooksCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let newCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         return newCollectionView
     }()
     
-    private let categoriesCollectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let newCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        return newCollectionView
-    }()
+    private let skazkiView = CategoryView()
+    private let knigiView = CategoryView()
+    private let komiksyView = CategoryView()
     
     let sectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     
     private let categoriesLabel : UILabel = {
         let label = UILabel()
         label.text = "Категории"
-        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.font = .systemFont(ofSize: 28, weight: .bold)
         label.textColor = .black
         return label
     }()
@@ -51,7 +60,7 @@ final class ReadingViewController: UIViewController {
     private let popularBooksLabel : UILabel = {
         let label = UILabel()
         label.text = "Популярные книги"
-        label.font = .systemFont(ofSize: 17, weight: .semibold)
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
         label.textColor = .black
         return label
     }()
@@ -67,29 +76,82 @@ extension ReadingViewController {
     
     private func setupView() {
         view.backgroundColor = .white
-        [categoriesLabel, popularBooksCollectionView].forEach {
-            view.addSubview($0)
+        view.addSubview(scrollView)
+        [categoriesLabel,skazkiView, knigiView, komiksyView, popularBooksLabel, popularBooksCollectionView].forEach {
+            contentView.addSubview($0)
         }
+        scrollView.addSubview(contentView)
         configureCollectionView()
+        setupCategories()
+        setDescriptions()
+        navigationItem.backButtonTitle = ""
     }
     
     private func configureCollectionView() {
         popularBooksCollectionView.delegate = self
         popularBooksCollectionView.dataSource = self
         popularBooksCollectionView.register(PopularBooksCollectionViewCell.self, forCellWithReuseIdentifier: PopularBooksCollectionViewCell.identifier)
-        
+        popularBooksCollectionView.isScrollEnabled = false
+    }
+    
+    private func setDescriptions() {
+        for i in 0..<popularBooks.count {
+            popularBooks[i].content = booksDescription[i]
+        }
+    }
+    
+    private func setupCategories() {
+        skazkiView.category = .skazki
+        knigiView.category = .knigi
+        komiksyView.category = .komiksy
     }
     
     private func setupConstraints() {
         
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+
+        contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalTo(scrollView)
+            $0.height.equalTo(1450)
+        }
+        
         categoriesLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(16)
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.left.equalTo(view).offset(16)
+            $0.top.equalTo(contentView.safeAreaLayoutGuide.snp.top)
+        }
+        
+        knigiView.snp.makeConstraints {
+            $0.left.equalTo(view).offset(16)
+            $0.top.equalTo(categoriesLabel.snp.bottom).offset(16)
+            $0.height.equalTo(140)
+            $0.width.equalTo(108.5)
+        }
+        
+        skazkiView.snp.makeConstraints {
+            $0.left.equalTo(knigiView.snp.right).offset(16)
+            $0.top.equalTo(categoriesLabel.snp.bottom).offset(16)
+            $0.height.equalTo(140)
+            $0.width.equalTo(108.5)
+        }
+        
+        komiksyView.snp.makeConstraints {
+            $0.left.equalTo(skazkiView.snp.right).offset(16)
+            $0.top.equalTo(categoriesLabel.snp.bottom).offset(16)
+            $0.height.equalTo(140)
+            $0.width.equalTo(108.5)
+        }
+        
+        popularBooksLabel.snp.makeConstraints {
+            $0.left.equalTo(view).offset(16)
+            $0.top.equalTo(komiksyView.snp.bottom).offset(32)
         }
         
         popularBooksCollectionView.snp.makeConstraints {
-            $0.left.right.bottom.equalToSuperview()
-            $0.top.equalTo(categoriesLabel.snp.bottom).offset(16)
+            $0.left.right.bottom.equalTo(view)
+            $0.top.equalTo(popularBooksLabel.snp.bottom).offset(16)
         }
     }
 }
@@ -108,11 +170,17 @@ extension ReadingViewController : UICollectionViewDelegate, UICollectionViewData
         cell.book = popularBooks[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let book = popularBooks[indexPath.row]
+        let detailVC = TextAndTestView()
+        detailVC.book = book
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension ReadingViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let paddingSpace = sectionInsets.left + sectionInsets.right + 12
         let availableWidth = collectionView.bounds.width - paddingSpace
         let widthPerItem = availableWidth / 2
@@ -127,3 +195,4 @@ extension ReadingViewController : UICollectionViewDelegateFlowLayout {
         return 12
     }
 }
+

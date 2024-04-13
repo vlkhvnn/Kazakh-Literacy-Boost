@@ -49,4 +49,5 @@ public enum AppColor: String, AppColorProtocol {
     case allAchievements
     case blueRoundAchievement
     case nonAchievedLabel
+    case categoryColor
 }

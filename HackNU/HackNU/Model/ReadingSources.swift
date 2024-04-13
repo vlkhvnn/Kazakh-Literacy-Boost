@@ -15,7 +15,7 @@ enum Category : String {
 
 struct Book {
     let title : String
-    let content : String
+    var content : String
     let imageName : String
 }
 
