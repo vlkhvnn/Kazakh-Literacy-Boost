@@ -14,7 +14,17 @@ final class ReadingViewController: UIViewController {
     private let popularBooks : [Book] = [
         Book(title: "Қотыр торғай", content: "", imageName: "book1"),
         Book(title: "Түлкі мен жолбарыс", content: "", imageName: "book2"),
+        Book(title: "Кім күшті?", content: "", imageName: "book3"),
+        Book(title: "Арыстан мен түлкі", content: "", imageName: "book4"),
+        Book(title: "Жыл басына таласқан хайуандар", content: "", imageName: "book5"),
+        Book(title: "Түлкі мен қырғауыл", content: "", imageName: "book6"),
+        Book(title: "Қасқыр мен қозы", content: "", imageName: "book7"),
+        Book(title: "Түлкі мен тырна", content: "", imageName: "book8"),
+        Book(title: "Қоянның зары", content: "", imageName: "book9"),
+        Book(title: "Қасқыр мен кісі", content: "", imageName: "book10"),
     ]
+    
+    private let categories : [Category] = [.knigi, .skazki, .komiksy]
     
     private let popularBooksCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -68,7 +78,6 @@ extension ReadingViewController {
         popularBooksCollectionView.dataSource = self
         popularBooksCollectionView.register(PopularBooksCollectionViewCell.self, forCellWithReuseIdentifier: PopularBooksCollectionViewCell.identifier)
         
-        
     }
     
     private func setupConstraints() {
@@ -88,6 +97,7 @@ extension ReadingViewController {
 extension ReadingViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       
         return popularBooks.count
     }
     
@@ -102,6 +112,7 @@ extension ReadingViewController : UICollectionViewDelegate, UICollectionViewData
 
 extension ReadingViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let paddingSpace = sectionInsets.left + sectionInsets.right + 12
         let availableWidth = collectionView.bounds.width - paddingSpace
         let widthPerItem = availableWidth / 2

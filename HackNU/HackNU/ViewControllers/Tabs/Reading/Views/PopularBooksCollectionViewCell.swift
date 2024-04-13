@@ -44,7 +44,6 @@ final class PopularBooksCollectionViewCell: UICollectionViewCell {
         [imageView, titleLabel].forEach {
             self.addSubview($0)
         }
-        
     }
     
     private func setupConstraints() {

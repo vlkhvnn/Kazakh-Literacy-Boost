@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum Categories {
-    case skazki
-    case knigi
-    case komiksy
+enum Category : String {
+    case skazki = "Сказки"
+    case knigi = "Книги"
+    case komiksy = "Комиксы"
 }
 
 struct Book {

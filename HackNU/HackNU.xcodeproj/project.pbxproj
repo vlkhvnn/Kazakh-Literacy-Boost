@@ -16,7 +16,6 @@
 		7A2F8A912BCA8AEC00C52CCB /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F8A902BCA8AEC00C52CCB /* Achievement.swift */; };
 		7A2F8A942BCAB61100C52CCB /* ReadingSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F8A932BCAB61100C52CCB /* ReadingSources.swift */; };
 		7A2F8A972BCABA1100C52CCB /* PopularBooksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F8A962BCABA1100C52CCB /* PopularBooksCollectionViewCell.swift */; };
-		7A2F8A992BCABC8000C52CCB /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F8A982BCABC8000C52CCB /* CategoryView.swift */; };
 		7A2F8A9B2BCABE5B00C52CCB /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F8A9A2BCABE5B00C52CCB /* CategoriesCollectionViewCell.swift */; };
 		7A6AB8CC2BCA634C00D2819B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6AB8CB2BCA634C00D2819B /* AppDelegate.swift */; };
 		7A6AB8CE2BCA634C00D2819B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6AB8CD2BCA634C00D2819B /* SceneDelegate.swift */; };
@@ -46,7 +45,6 @@
 		7A2F8A902BCA8AEC00C52CCB /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		7A2F8A932BCAB61100C52CCB /* ReadingSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSources.swift; sourceTree = "<group>"; };
 		7A2F8A962BCABA1100C52CCB /* PopularBooksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularBooksCollectionViewCell.swift; sourceTree = "<group>"; };
-		7A2F8A982BCABC8000C52CCB /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		7A2F8A9A2BCABE5B00C52CCB /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A6AB8C82BCA634C00D2819B /* HackNU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackNU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6AB8CB2BCA634C00D2819B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 			children = (
 				7A2F8A962BCABA1100C52CCB /* PopularBooksCollectionViewCell.swift */,
 				7A2F8A9A2BCABE5B00C52CCB /* CategoriesCollectionViewCell.swift */,
-				7A2F8A982BCABC8000C52CCB /* CategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,7 +313,6 @@
 				7A6AB8FF2BCA696100D2819B /* SpeakingViewController.swift in Sources */,
 				7A6AB8FD2BCA694C00D2819B /* GrammarViewController.swift in Sources */,
 				7A2F8A972BCABA1100C52CCB /* PopularBooksCollectionViewCell.swift in Sources */,
-				7A2F8A992BCABC8000C52CCB /* CategoryView.swift in Sources */,
 				7A2F8A9B2BCABE5B00C52CCB /* CategoriesCollectionViewCell.swift in Sources */,
 				7A6AB8EC2BCA650A00D2819B /* APICaller.swift in Sources */,
 				7A6AB9012BCA697300D2819B /* ReadingViewController.swift in Sources */,
